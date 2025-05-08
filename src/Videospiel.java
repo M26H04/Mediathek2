@@ -5,7 +5,7 @@
  * @author SE2-Team
  * @version SoSe 2021
  */
-class Videospiel implements Medium
+class Videospiel extends AbstractMedium
 {
     /**
      * Das System, auf dem das Spiel lauffähig ist
@@ -13,21 +13,11 @@ class Videospiel implements Medium
     private String _system;
 
     /**
-     * Ein Kommentar zum Medium
-     */
-    private String _kommentar;
-
-    /**
-     * Der Titel des Mediums
-     */
-    private String _titel;
-
-    /**
      * Initialisiert ein neues Videospiel.
      * 
      * @param titel Der Titel des Spiels
      * @param kommentar Ein Kommentar zum Spiel
-     * @param system Die Bezeichnung des System
+     * @param system Die Bezeichnung des Systems
      * 
      * @require titel != null
      * @require kommentar != null
@@ -39,18 +29,9 @@ class Videospiel implements Medium
      */
     public Videospiel(String titel, String kommentar, String system)
     {
-        assert titel != null : "Vorbedingung verletzt: titel != null";
-        assert kommentar != null : "Vorbedingung verletzt: kommentar != null";
+        super(titel, kommentar);
         assert system != null : "Vorbedingung verletzt: system != null";
-        _titel = titel;
-        _kommentar = kommentar;
         _system = system;
-    }
-
-    @Override
-    public String getMedienBezeichnung()
-    {
-        return "Videospiel";
     }
 
     /**
@@ -65,59 +46,32 @@ class Videospiel implements Medium
         return _system;
     }
 
-    @Override
-    public String toString()
-    {
-        return getFormatiertenString();
-    }
-
-    @Override
-    public String getKommentar()
-    {
-        return _kommentar;
-    }
-
     /**
-     * Ändert den Kommentar
+     * Setzt das System neu.
      * 
-     * @param kommentar Ein Kommentar zum Medium
+     * @param system Das neue System
      * 
-     * @require kommentar != null
-     * @ensure getKommentar() == kommentar
+     * @require system != null
+     * @ensure getSystem() == system
      */
-    @Override
-    public void setKommentar(String kommentar)
+    public void setSystem(String system)
     {
-        assert kommentar != null : "Vorbedingung verletzt: kommentar != null";
-        _kommentar = kommentar;
+        assert system != null : "Vorbedingung verletzt: system != null";
+        _system = system;
     }
 
     @Override
-    public String getTitel()
+    public String getMedienBezeichnung()
     {
-        return _titel;
-    }
-
-    /**
-     * Ändert den Titel
-     * 
-     * @param titel Der Titel des Mediums
-     * 
-     * @require titel != null
-     * @ensure getTitel() == titel
-     */
-    @Override
-    public void setTitel(String titel)
-    {
-        assert titel != null : "Vorbedingung verletzt: titel != null";
-        _titel = titel;
+        return "Videospiel";
     }
 
     @Override
     public String getFormatiertenString()
     {
-        return getMedienBezeichnung() + ":\n" + "    " + "Titel: " + _titel
-                + "\n" + "    " + "Kommentar: " + _kommentar + "\n" + "    "
-                + "System: " + _system + "\n";
+        return getMedienBezeichnung() + ":\n"
+            + "    Titel: " + getTitel() + "\n"
+            + "    Kommentar: " + getKommentar() + "\n"
+            + "    System: " + _system + "\n";
     }
 }

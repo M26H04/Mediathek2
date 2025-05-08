@@ -1,11 +1,11 @@
 /**
- * Eine CD ist ein Medium. Zusätzlich zu den Eigenschaften eines Mediums erfasst
+ * Eine CD ist ein {@link Medium}. Zusätzlich zu den Eigenschaften eines Mediums erfasst
  * sie Informationen zu Spiellänge und Interpret.
  * 
  * @author SE2-Team
  * @version SoSe 2021
  */
-class CD implements Medium
+class CD extends AbstractMedium
 {
     /**
      * Der Interpret der CD
@@ -16,17 +16,6 @@ class CD implements Medium
      * Die Spiellänge der CD in Minuten
      */
     private int _spiellaenge;
-
-    /**
-     * Ein Kommentar zum Medium
-     */
-    private String _kommentar;
-
-    /**
-     * Der Titel des Mediums
-     * 
-     */
-    private String _titel;
 
     /**
      * Initialisiert ein neues Exemplar.
@@ -48,14 +37,11 @@ class CD implements Medium
      */
     public CD(String titel, String kommentar, String interpret, int spiellaenge)
     {
-        assert titel != null : "Vorbedingung verletzt: titel != null";
-        assert kommentar != null : "Vorbedingung verletzt: kommentar != null";
+        super(titel, kommentar);
         assert interpret != null : "Vorbedingung verletzt: interpret != null";
         assert spiellaenge > 0 : "Vorbedingung verletzt: spiellaenge > 0";
-        _titel = titel;
-        _kommentar = kommentar;
-        _spiellaenge = spiellaenge;
         _interpret = interpret;
+        _spiellaenge = spiellaenge;
     }
 
     /**
@@ -71,9 +57,9 @@ class CD implements Medium
     }
 
     /**
-     * Ändert den Interpreten
+     * Ändert den Interpreten der CD.
      * 
-     * @param interpret Der Interpret des Mediums
+     * @param interpret Der neue Interpret.
      * 
      * @require interpret != null
      * @ensure getInterpret() == interpret
@@ -82,12 +68,6 @@ class CD implements Medium
     {
         assert interpret != null : "Vorbedingung verletzt: interpret != null";
         _interpret = interpret;
-    }
-
-    @Override
-    public String getMedienBezeichnung()
-    {
-        return "CD";
     }
 
     /**
@@ -103,12 +83,12 @@ class CD implements Medium
     }
 
     /**
-     * Ändert die Spiellänge
+     * Ändert die Spiellänge.
      * 
-     * @param spiellaenge Spiellänge des Medium
+     * @param spiellaenge Die neue Spiellänge
      * 
      * @require spiellaenge > 0
-     * @ensure getSpielaenge() == spiellaenge
+     * @ensure getSpiellaenge() == spiellaenge
      */
     public void setSpiellaenge(int spiellaenge)
     {
@@ -117,37 +97,18 @@ class CD implements Medium
     }
 
     @Override
-    public String getKommentar()
+    public String getMedienBezeichnung()
     {
-        return _kommentar;
-    }
-
-    @Override
-    public void setKommentar(String kommentar)
-    {
-        assert kommentar != null : "Vorbedingung verletzt: kommentar != null";
-        _kommentar = kommentar;
-    }
-
-    @Override
-    public String getTitel()
-    {
-        return _titel;
-    }
-
-    @Override
-    public void setTitel(String titel)
-    {
-        assert titel != null : "Vorbedingung verletzt: titel != null";
-        _titel = titel;
+        return "CD";
     }
 
     @Override
     public String getFormatiertenString()
     {
-        return getMedienBezeichnung() + ":\n" + "    " + "Titel: " + _titel
-                + "\n" + "    " + "Kommentar: " + _kommentar + "\n" + "    "
-                + "Interpret: " + _interpret + "\n" + "    " + "Spiellänge: "
-                + _spiellaenge + "\n";
+        return getMedienBezeichnung() + ":\n"
+            + "    Titel: " + getTitel() + "\n"
+            + "    Kommentar: " + getKommentar() + "\n"
+            + "    Interpret: " + _interpret + "\n"
+            + "    Spiellänge: " + _spiellaenge + "\n";
     }
 }
