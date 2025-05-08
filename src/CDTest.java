@@ -88,5 +88,13 @@ public class CDTest
     {
         return new CD(TITEL, KOMMENTAR, INTERPRET, LAENGE);
     }
+    
+    @Test
+    public void testBerechneMietgebuehr()
+    {
+        assertEquals(new Geldbetrag(300), _cd1.berechneMietgebuehr(1));
+        assertEquals(new Geldbetrag(900), _cd1.berechneMietgebuehr(3));
+        assertEquals(new Geldbetrag(3000), _cd1.berechneMietgebuehr(10));
+    }
 
 }

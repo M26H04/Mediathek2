@@ -109,4 +109,6 @@ class CD extends AbstractMedium
     		        + "    Interpret: " + _interpret + "\n"
     		        + "    Spiellänge: " + _spiellaenge + "\n";
     }
+
+	
 }

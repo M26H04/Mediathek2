@@ -47,4 +47,12 @@ abstract class AbstractMedium implements Medium
 
     
     public abstract String getMedienBezeichnung();
+  
+    @Override
+    public Geldbetrag berechneMietgebuehr(int mietTage)
+    {
+        assert mietTage > 0 : "Vorbedingung verletzt: mietTage > 0";
+        return new Geldbetrag(mietTage * 300);
+    }
+
 }
