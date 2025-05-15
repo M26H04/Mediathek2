@@ -105,12 +105,19 @@ class Verleihkarte
      * 
      * @ensure result != null
      */
+    /**
+     * Gibt die aktuelle Mietgebühr zurück.
+     * 
+     * @return Die aktuelle Mietgebühr bis zum heutigen Tag.
+     * 
+     * @ensure result != null
+     */
     public Geldbetrag getMietgebuehr()
     {
-        // TODO für Aufgabe 4.2.4: Dummy-Implementation ersetzen, sobald ein
-        // Medium die benötigte Funktionialität anbietet.
-        return new Geldbetrag(0);
+        int tage = Datum.heute().tageSeit(_ausleihdatum) + 1;
+        return _medium.berechneMietgebuehr(tage);
     }
+
 
     /**
      * Berechnet die Ausleihdauer in Tagen. Der erste Tag der Ausleihe zählt
