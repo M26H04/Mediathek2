@@ -1,4 +1,4 @@
-abstract class AbstractMedium implements Medium
+abstract class AbstractMedium implements Medium // HUHU Jannik benutzt GIT zum ersten Mal :)
 {
     private String _titel;
     private String _kommentar;
@@ -11,43 +11,36 @@ abstract class AbstractMedium implements Medium
         _kommentar = kommentar;
     }
 
-   
     public String getTitel()
     {
         return _titel;
     }
 
-    
     public void setTitel(String titel)
     {
         assert titel != null : "Vorbedingung verletzt: titel != null";
         _titel = titel;
     }
 
-    
     public String getKommentar()
     {
         return _kommentar;
     }
 
-    
     public void setKommentar(String kommentar)
     {
         assert kommentar != null : "Vorbedingung verletzt: kommentar != null";
         _kommentar = kommentar;
     }
 
-    
     public String getFormatiertenString()
     {
-    	return getMedienBezeichnung() + ":\n"
-                + "    Titel: " + _titel + "\n"
+        return getMedienBezeichnung() + ":\n" + "    Titel: " + _titel + "\n"
                 + "    Kommentar: " + _kommentar + "\n";
     }
 
-    
     public abstract String getMedienBezeichnung();
-  
+
     @Override
     public Geldbetrag berechneMietgebuehr(int mietTage)
     {
