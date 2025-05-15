@@ -1,4 +1,4 @@
-abstract class AbstractMedium implements Medium // HUHU Jannik benutzt GIT zum ersten Mal :)
+abstract class AbstractMedium implements Medium
 {
     private String _titel;
     private String _kommentar;
