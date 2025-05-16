@@ -12,6 +12,7 @@ public class DVDTest
     private static final String REGISSEUR = "DVD Regisseur";
     private DVD _dvd1;
     private DVD _dvd2;
+    
 
     @Before
     public void setUp()
@@ -74,6 +75,14 @@ public class DVDTest
     private DVD getMedium()
     {
         return new DVD(TITEL, KOMMENTAR, REGISSEUR, LAENGE);
+    }
+    
+    @Test
+    public void testBerechneMietgebuehr()
+    {
+        assertEquals(new Geldbetrag(300), _dvd1.berechneMietgebuehr(1));
+        assertEquals(new Geldbetrag(900), _dvd2.berechneMietgebuehr(3));
+        assertEquals(new Geldbetrag(3000), _dvd2.berechneMietgebuehr(10));
     }
 
 }

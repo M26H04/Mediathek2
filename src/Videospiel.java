@@ -79,4 +79,5 @@ class Videospiel extends AbstractMedium
     	assert mietTage > 0 : "Vorbedingung verletzt : mietTage > 0";
     	return new Geldbetrag(200);
     }
+    
 }
