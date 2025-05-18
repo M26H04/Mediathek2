@@ -15,7 +15,7 @@ abstract class AbstractMedium implements Medium
      * @return titel ist ein Titel
      * 
      */
-    public String getTitel() // titel
+    public String getTitel() // titelv2
     {
         return _titel;
     }
