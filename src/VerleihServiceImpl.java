@@ -98,8 +98,8 @@ class VerleihServiceImpl extends AbstractObservableService
 
         for (Medium medium : medien)
         {
-        	Verleihkarte verleihkarte = _verleihkarten.get(medium);
-        	VerleihProtokollierer.protokolliere(VerleihProtokollierer.RUECKGABE, verleihkarte);
+        	//Verleihkarte verleihkarte = _verleihkarten.get(medium);
+        	//VerleihProtokollierer.protokolliere(VerleihProtokollierer.RUECKGABE, verleihkarte);
             _verleihkarten.remove(medium);
            
         }
@@ -187,7 +187,7 @@ class VerleihServiceImpl extends AbstractObservableService
                     ausleihDatum);
 
             _verleihkarten.put(medium, verleihkarte);
-            VerleihProtokollierer.protokolliere(VerleihProtokollierer.AUSLEIHE, verleihkarte);
+            //VerleihProtokollierer.protokolliere(VerleihProtokollierer.AUSLEIHE, verleihkarte);
         }
 
         informiereUeberAenderung();
