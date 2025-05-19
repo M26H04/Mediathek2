@@ -24,10 +24,23 @@ public class VerleihProtokollierer
 	        //System.out.println(verleikarte.getFormatiertenString());
 	      //  System.out.println();
 		
-		FileWriter writer = new FileWriter("verleihprotokoll.txt", true);
-        writer.write(">>> Protokolleintrag (" + ereignis + "):\n");
-        writer.write(verleikarte.getFormatiertenString() + "\n\n");
-        writer.close();
+		//FileWriter writer = new FileWriter("verleihprotokoll.txt", true);
+       // writer.write(">>> Protokolleintrag (" + ereignis + "):\n");
+       // writer.write(verleikarte.getFormatiertenString() + "\n\n");
+       // writer.close();
+		
+		 try
+	        {
+	            FileWriter writer = new FileWriter("Protokolle/verleihprotokoll.txt", true);
+	            writer.write(">>> Protokolleintrag (" + ereignis + "):\n");
+	            writer.write(verleikarte.getFormatiertenString() + "\n\n");
+	            writer.close();
+	        }
+	        catch (IOException e)
+	        {
+	            System.err.println("Fehler:" + e.getMessage());
+	        }
+	    }
 
-	}
+	
 }
