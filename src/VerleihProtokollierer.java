@@ -29,18 +29,22 @@ public class VerleihProtokollierer
        // writer.write(verleikarte.getFormatiertenString() + "\n\n");
        // writer.close();
 		
-		 try
+		 try (FileWriter writer = new FileWriter("Protokolle/verleihprotokoll.txt", true))
 	        {
-	            FileWriter writer = new FileWriter("Protokolle/verleihprotokoll.txt", true);
 	            writer.write(">>> Protokolleintrag (" + ereignis + "):\n");
 	            writer.write(verleikarte.getFormatiertenString() + "\n\n");
-	            writer.close();
+	            //writer.close();
 	        }
 	        catch (IOException e)
 	        {
 	           // System.err.println("Fehler:" + e.getMessage());
 	        	 throw new ProtokollierException("Protokollieren fehlgeschlagen: " + e.getMessage());
 	        }
+		 	finally
+	        {
+	            System.out.println("Protokolliervorgang beendet.");
+	        }
+		 
 	    }
 
 	
