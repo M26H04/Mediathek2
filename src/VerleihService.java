@@ -32,7 +32,7 @@ interface VerleihService extends ObservableService
      * 
      * @ensure sindAlleVerliehenAn(kunde, medien)
      */
-    void verleiheAn(Kunde kunde, List<Medium> medien, Datum ausleihDatum);
+    void verleiheAn(Kunde kunde, List<Medium> medien, Datum ausleihDatum) throws ProtokollierException;
 
     /**
      * Prüft ob die ausgewählten Medium für den Kunde ausleihbar sind

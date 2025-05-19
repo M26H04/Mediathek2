@@ -43,3 +43,18 @@ am 19.5.2025 verliehen an
     22670 Hamburg
 
 
+>>> Protokolleintrag (AUSLEIHE):
+CD:
+    Titel: Garden State
+    Kommentar: Soundtrack
+    Interpret: Various
+    Spiellänge: 56
+am 19.5.2025 verliehen an
+    Kundennummer: 123465
+    Name: John. J. Ava
+    Telefon: unbekannt
+    Anschrift:
+    Wurtstrasse 23
+    58507 Köln
+
+
