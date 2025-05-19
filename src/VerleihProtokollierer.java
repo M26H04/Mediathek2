@@ -15,7 +15,7 @@ public class VerleihProtokollierer
 	 * 
 	 */
 	
-	public static void protokolliere(String ereignis, Verleihkarte verleikarte) 
+	public static void protokolliere(String ereignis, Verleihkarte verleikarte) throws ProtokollierException 
 	{
 		assert ereignis != null : "Vorbedingung verletzt: ereignis != null";
 		assert verleikarte != null : "Vorbedingung verletzt: verleihkarte != null";
@@ -38,7 +38,8 @@ public class VerleihProtokollierer
 	        }
 	        catch (IOException e)
 	        {
-	            System.err.println("Fehler:" + e.getMessage());
+	           // System.err.println("Fehler:" + e.getMessage());
+	        	 throw new ProtokollierException("Protokollieren fehlgeschlagen: " + e.getMessage());
 	        }
 	    }
 
