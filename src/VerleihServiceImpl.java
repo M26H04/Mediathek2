@@ -91,7 +91,7 @@ class VerleihServiceImpl extends AbstractObservableService
     }
 
     @Override
-    public void nimmZurueck(List<Medium> medien, Datum rueckgabeDatum)
+    public void nimmZurueck(List<Medium> medien, Datum rueckgabeDatum) throws ProtokollierException
     {
         assert sindAlleVerliehen(medien) : "Vorbedingung verletzt: sindVerliehen(medien)";
         assert rueckgabeDatum != null : "Vorbedingung verletzt: rueckgabeDatum != null";
