@@ -93,13 +93,15 @@ class VerleihServiceImpl extends AbstractObservableService
     @Override
     public void nimmZurueck(List<Medium> medien, Datum rueckgabeDatum)
     {
-        assert sindAlleVerliehen(
-                medien) : "Vorbedingung verletzt: sindVerliehen(medien)";
+        assert sindAlleVerliehen(medien) : "Vorbedingung verletzt: sindVerliehen(medien)";
         assert rueckgabeDatum != null : "Vorbedingung verletzt: rueckgabeDatum != null";
 
         for (Medium medium : medien)
         {
+        	Verleihkarte verleihkarte = _verleihkarten.get(medium);
+        	VerleihProtokollierer.protokolliere(VerleihProtokollierer.RUECKGABE, verleihkarte);
             _verleihkarten.remove(medium);
+           
         }
 
         informiereUeberAenderung();
@@ -185,6 +187,7 @@ class VerleihServiceImpl extends AbstractObservableService
                     ausleihDatum);
 
             _verleihkarten.put(medium, verleihkarte);
+            VerleihProtokollierer.protokolliere(VerleihProtokollierer.AUSLEIHE, verleihkarte);
         }
 
         informiereUeberAenderung();
