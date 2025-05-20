@@ -219,7 +219,7 @@ final class Datum implements Comparable<Datum>
     }
 
     /**
-     * Gibt den Tag vor diesem Tag zurück.
+     * Gibt den Tag vor diesem Tag zurück. //test
      * 
      * @return den Tag vor diesem Tag.
      */
